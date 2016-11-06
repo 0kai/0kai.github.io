@@ -1,0 +1,47 @@
+---
+layout: blog_base
+---
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2 style="margin: 0">
+        {{page.title}}
+        </h2>
+        <div class="text-right">
+            {{page.date | date : "%m/%d/%Y"}}
+            &nbsp;&nbsp;
+        </div>
+        <div>
+            分类:&nbsp;
+            {% for category in page.categories %}
+            <a href="/blog/?category={{category.id}}" style="text-decoration: none">{{category}}</a>
+            &nbsp;&nbsp;
+            {% endfor %}
+            
+            {% for tag in page.tags %}
+            <a href="/blog/?tag={{tag.id}}" style="text-decoration: none"><span class="label label-info">{{tag}}</span></a>
+            &nbsp;&nbsp;
+            {% endfor %}
+        </div>
+        <hr>
+    <span id="article_content" class="img-responsive">
+    {{ content }}
+    </span>
+    <br/>
+    本文地址&nbsp;<a href="{{ site.url }}{{page.url}}" class="text-default">{{ site.url }}{{page.url}}</a>，转载请注明！
+    </div>
+</div>
+<nav>
+    <ul class="pager">
+    {% if page.previous %}
+    <li class="previous"><a href="{{ page.previous.url }}">
+    <span class="glyphicon glyphicon-chevron-up"></span>&nbsp;上一篇</a><span>{{page.previous.title}}</span></li>
+    {% endif %}
+    {% if page.next %}
+    <li class="next"><a href="{{ page.next.url }}">
+    <span class="glyphicon glyphicon-chevron-down"></span>&nbsp;下一篇</a><span>{{page.next.title}}</span></li>
+    {% endif %}
+    </ul>
+</nav>
+
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="blog_{{article.id}}" data-title="{{article.title}}" data-url="http://{{this_url}}"></div>

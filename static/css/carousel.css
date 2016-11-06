@@ -1,0 +1,56 @@
+.icon-arrow-left {
+	background:
+		url("/static/images/xqing_btnbefore.png")
+		no-repeat;
+	width: 66px;
+	height: 68px;
+	cursor: pointer
+}
+
+.icon-arrow-right {
+	background:
+		url("/static/images/xqing_btnnext.png")
+		no-repeat;
+	width: 66px;
+	height: 68px;
+	cursor: pointer
+}
+
+.thumbnail {
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	font-size: 15px
+}
+
+.carousel span {
+	position: absolute;
+	z-index: 2;
+	overflow: hidden;
+	top: 56%;
+	margin-top: -34px;
+	display: none
+}
+
+.carousel .icon-arrow-right {
+	right: -12px
+}
+
+.thumbnail div {
+	display: table-cell;
+	position: relative;
+	float: left;
+	z-index: 1
+}
+
+.thumbnail div img {
+	vertical-align: middle;
+	display: inline-block;
+	margin: 0 10px 0 0;
+	overflow: hidden
+}
+
+.thumbnail-wrap {
+	white-space: nowrap;
+	text-align: left
+}

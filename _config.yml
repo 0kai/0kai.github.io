@@ -1,0 +1,21 @@
+---
+title: 领凯网
+email: z@0kai.net
+description: '个人开发者网站，开发者博客、开发应用展示，欢迎互相讨论、学习。'
+baseurl: ''
+url: ''
+mediaurl: '/static'
+twitter_username: 
+github_username: 0kai
+markdown: kramdown
+theme: minima
+
+paginate: 2
+paginate_path: "/blog/page:num/"
+
+gems:
+- jekyll-feed
+- jekyll-paginate
+exclude:
+- Gemfile
+- Gemfile.lock

@@ -1,0 +1,48 @@
+---
+layout: base
+---
+<script type="text/javascript">
+    document.getElementById("tab_blog").className = "active";
+</script>
+
+<div class="row">
+    <div class="col-sm-9">
+    {{ content }}
+    </div>
+    
+    <div class="col-sm-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            最近文章
+            </div>
+            <div class="list-group">
+            {% for rpost in site.posts limit:10 %}
+                <a href="{{ site.url }}{{ rpost.url }}" class="list-group-item" title="{{ rpost.title }}" rel="bookmark">
+                    {{ rpost.title }}
+                </a>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            文章分类
+            </div>
+            <div class="list-group">
+            {% for category in site.categories %}
+                <a href="#" class="list-group-item">
+                    <span class="badge">{{category.article_set.count}}</span>
+                {{ category[0] }}
+                </a>
+            {% endfor %}
+            </div>  
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            友情链接
+            </div>
+            <div class="panel-body">
+            欢迎交换...
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+---
+# You don't need to edit this file, it's empty on purpose.
+# Edit theme's home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: blog_base
+# permalink: /blog/
+---
+
+<script type="text/javascript">
+    document.getElementById("tab_blog").className = "active";
+</script>
+
+{% for post in paginator.posts %}
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h4><b><a class='text-default' href="{{ post.url }}">
+    {{ post.title }}
+    </a></b></h4>
+    <div class="text-right">
+    
+    {{post.date | date: "%F"}}
+    &nbsp;&nbsp;
+    </div>
+    <hr style="margin-top: 0">
+    <blockquote>
+    {{ post.content | strip_html | truncate:90}}
+    </blockquote>
+  </div>
+  <div class="panel-footer">
+
+    {% if post.tags %}
+    <div>
+      <span class="glyphicon glyphicon-tag text-info"></span>
+      &nbsp;&nbsp;
+      {% for tag in post.tags %}
+      <a href="/blog/?tag={{tag.id}}" style="text-decoration: none"><span class="label label-info">{{tag}}</span></a>
+      &nbsp;&nbsp;
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+{% endfor %}
+
+<nav>
+  <ul class="pagination">
+    {% if paginator.previous_page %}
+    <li><a href="{{ paginator.previous_page_path }}">&lsaquo;</a></li>
+    {% else %}
+    <li class="disabled"><span>&lsaquo;</span></li>
+    {% endif %}
+    
+    {% for page in (1 .. paginator.total_pages) %}
+      {% if page == paginator.page %}
+      <li class="active"><span>{{page}}</span></li>
+      {% else if page == 1%}
+      <li><a href="/blog/">{{page}}</a></li>
+      {% else %}
+      <li><a href="/blog/page{{page}}">{{page}}</a></li>
+      {% endif %}
+    {% endfor %}
+    
+    {% if paginator.next_page %}
+    <li><a href="{{ paginator.next_page_path }}">&rsaquo;</a></li>
+    {% else %}
+    <li class="disabled"><span>&rsaquo;</span></li>
+    {% endif %}
+  </ul>
+</nav>
+
