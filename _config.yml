@@ -4,13 +4,14 @@ email: z@0kai.net
 description: '个人开发者网站，开发者博客、开发应用展示，欢迎互相讨论、学习。'
 baseurl: ''
 url: ''
-mediaurl: '/static'
+media: '/media'
+static: '/static'
 twitter_username: 
 github_username: 0kai
 markdown: kramdown
 theme: minima
 
-paginate: 2
+paginate: 8
 paginate_path: "/blog/page:num/"
 
 gems:

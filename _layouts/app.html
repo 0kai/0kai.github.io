@@ -1,0 +1,86 @@
+---
+layout: base
+---
+{% capture media_path %}{{site.media}}/app/{{page.appId}}{% endcapture %}
+
+<script type="text/javascript">
+    document.getElementById("tab_app").className = "active";
+</script>
+
+<link href="{{site.static}}/css/base.css" rel="stylesheet">
+<link href="{{site.static}}/css/carousel.css" rel="stylesheet" />
+
+<ol class="breadcrumb">
+    <li><a href="/app">应用列表</a></li>
+    <li class="active">{{page.title}}</li>
+</ol>
+
+<div class="row">
+    <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="{{media_path}}/{{page.logo}}" width="160" height="160" />
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-9">
+        <h2>{{page.title}}</h2>
+        <h4>{{page.subtitle}}</h4>
+        更新日期：<span class="label label-info">
+        {{page.date | date : "%Y/%m/%d"}}
+        </span>
+        <br>
+        <a href="{{media_path}}/{{page.download}}" class="btn btn-primary" role="button">下载</a>
+    </div>
+</div>
+    
+<div class="panel panel-info">
+  <div class="panel-heading">应用简介</div>
+  <div class="panel-body">
+    {{ content }}
+  </div>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">界面预览</div>
+  <div class="panel-body">
+    {% if page.images %}
+    <div class="carousel">
+        <div class="thumbnail" id="J_thumbnail">
+          <div class="thumbnail-wrap" id="J_thumbnail_wrap">
+            {% for image in page.images %}
+            <img src='{{media_path}}/{{image}}'/>
+            {% endfor %}
+          </div>
+        </div>
+        <span class="icon-arrow-left" id="J_leftBtn" style="display: none; "></span>
+        <span class="icon-arrow-right" id="J_rightBtn" style="display: none; "></span>
+     </div>
+     {% else %}
+     <div class="alert alert-warning" role="alert">未发现截图 ⊙﹏⊙‖∣</div>
+     {% endif %}
+    
+  </div>
+</div>
+
+
+<script src="{{site.static}}/js/do.js"></script>
+<script src="{{site.static}}/js/base.js"></script>
+<script type="text/javascript">
+Do.ready(function(){
+  var Carousel = Do.require('Carousel');
+  var J_thumbnail = $('#J_thumbnail');
+  if (J_thumbnail[0]) {
+      var thumbnail = new Carousel({
+          prevBtn: $('#J_leftBtn'),
+          nextBtn: $('#J_rightBtn'),
+          box: J_thumbnail,
+          content: $('#J_thumbnail div'),
+          showNum: 1
+      });
+      thumbnail.init();
+  }
+})
+
+var old_str = $("#appIntroduce").html();
+var new_str = old_str.replace(new RegExp("\n","gm"), "<br/>");
+$("#appIntroduce").html(new_str);
+</script>

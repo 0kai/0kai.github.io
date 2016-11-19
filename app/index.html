@@ -1,0 +1,52 @@
+---
+title: 领凯应用
+layout: base
+keywords: 开发者博客,APP开发,领凯博客,领凯应用,领凯网
+---
+{% capture media_path %}{{site.media}}/app/{% endcapture %}
+
+<script type="text/javascript">
+    document.getElementById("tab_app").className = "active";
+</script>
+
+<ol class="breadcrumb">
+	<li class="active">应用列表</li>
+</ol>
+
+<div class="row" id="app_list">
+{% for category in site.categories %}
+{% if category[0] == "app" %}
+	{% assign pages_list = category[1] %} 
+	{% for app in pages_list %}
+	<div class="col-sm-6" id="app">
+		<div class="panel panel-default">
+		  <div class="panel-body">
+			<div class="row">
+				<div class="col-xs-4">
+					<a id="app_icon" href="">
+					<img id="appIcon" width="80" height="80" src='{{media_path}}/{{app.appId}}/{{app.logo}}'/>
+					</a>
+				</div>
+				<div class="col-xs-8">
+					<div class="row">
+						<div class="col-xs-7">
+							<h4>
+							<a id="app_name" href="{{site.url}}{{app.id}}">{{app.title}}</a>
+							</h4>
+						</div>
+						<div class="col-xs-5">
+							<a id="app_download" class="btn btn-primary btn-sm" href="{{media_path}}/{{app.appId}}/{{app.download}}" role="button">下载</a>
+						</div>
+					</div>
+					<p class="text-muted">
+					<small id="app_info">{{app.subtitle}}</small>
+					</p>
+				</div>
+			</div>
+		  </div>
+		</div>
+	</div>
+	{% endfor %}
+{% endif %}
+{% endfor %}
+</div>

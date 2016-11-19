@@ -7,18 +7,18 @@ layout: blog_base
         {{page.title}}
         </h2>
         <div class="text-right">
-            {{page.date | date : "%m/%d/%Y"}}
+            {{page.date | date : "%Y/%m/%d"}}
             &nbsp;&nbsp;
         </div>
         <div>
             分类:&nbsp;
             {% for category in page.categories %}
-            <a href="/blog/?category={{category.id}}" style="text-decoration: none">{{category}}</a>
+            <a href="#" style="text-decoration: none">{{category}}</a>
             &nbsp;&nbsp;
             {% endfor %}
             
             {% for tag in page.tags %}
-            <a href="/blog/?tag={{tag.id}}" style="text-decoration: none"><span class="label label-info">{{tag}}</span></a>
+            <a href="#" style="text-decoration: none"><span class="label label-info">{{tag}}</span></a>
             &nbsp;&nbsp;
             {% endfor %}
         </div>
