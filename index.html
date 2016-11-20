@@ -1,7 +1,5 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+title: 领凯网
 layout: base
 ---
 
@@ -19,11 +17,11 @@ layout: base
 	<div class="carousel-inner">
 
 		<div class="item active">
-			<img alt="" src="{{site.mediaurl}}/site/push_banner_3.jpg" />
+			<img alt="" src="{{site.static}}/images/push_banner_3.jpg" />
 		</div>
 		<div class="item">
-			<a href="/app/id/2">
-			<img alt="" src="{{site.mediaurl}}/site/push_banner_2.jpg" />
+			<a href="/app/2014/08/01/pet-op">
+			<img alt="" src="{{site.static}}/images/push_banner_2.jpg" />
 			</a>
 		</div>
 	</div>
@@ -47,7 +45,7 @@ layout: base
 		{% for rpost in site.posts limit:10  %}
 		{% if rpost.categories[0] == "app" %}
 		<div>
-			<a href="{{ site.url }}{{ rpost.url }}" class="text-default">{{ rpost.title }}</a>
+			<a href="{{ site.url }}{{ rpost.url }}" class="text-default">{{ rpost.title }} | {{ rpost.subtitle | truncate:20 }} &nbsp; {{ rpost.date | date: "%m/%d" }}</a></a>
 		</div>
 		{% endif %}
 		{% endfor %}
@@ -70,26 +68,4 @@ layout: base
 		{% endfor %}
 		</p>
 	</div>
-</div>
-
-{% for post in paginator.posts %}
-  <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-  <p class="author">
-    <span class="date">{{ post.date }}</span>
-  </p>
-{% endfor %}
-
-<!-- Pagination links -->
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
-  {% else %}
-    <span class="previous">Previous</span>
-  {% endif %}
-  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
-  {% else %}
-    <span class="next ">Next</span>
-  {% endif %}
 </div>

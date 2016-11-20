@@ -16,22 +16,23 @@ layout: base
             最近文章
             </div>
             <div class="list-group">
-            {% for rpost in site.posts limit:10 %}
+            {% for rpost in site.posts limit:20 %}
+                {% if rpost.categories[0] == "blog" %}
                 <a href="{{ site.url }}{{ rpost.url }}" class="list-group-item" title="{{ rpost.title }}" rel="bookmark">
                     {{ rpost.title }}
                 </a>
+                {% endif %}
             {% endfor %}
             </div>
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
-            文章分类
+            标签
             </div>
             <div class="list-group">
-            {% for category in site.categories %}
+            {% for tag in site.tags limit:10 %}
                 <a href="#" class="list-group-item">
-                    <span class="badge">{{category.article_set.count}}</span>
-                {{ category[0] }}
+                {{ tag[0] }}
                 </a>
             {% endfor %}
             </div>  

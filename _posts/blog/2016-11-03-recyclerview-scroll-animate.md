@@ -3,14 +3,16 @@ title: 随着RecyclerView滚动的动画
 layout: blog
 categories: blog
 tags: android RecyclerView
-blogid: 1
+blogId: 1
 ---
+{% capture media_path %}{{site.media}}/blog/{{page.blogId}}{% endcapture %}
+
 
 > 注：本文只说明大概的实现过程，并不放置完整的代码
 
 #### 效果
-![]({{site.mediaurl}}/blog/{{page.blogid}}/image-2016110302.gif)
-![]({{site.mediaurl}}/blog/{{page.blogid}}/image-2016110301.png)
+![]({{media_path}}/image-2016110302.gif)
+![]({{media_path}}/image-2016110301.png)
 
 #### 需求
 1. B可以横向滚动，C并不在B中（因为高度不一致）
