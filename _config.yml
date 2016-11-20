@@ -4,7 +4,7 @@ email: z@0kai.net
 description: '个人开发者网站，开发者博客、开发应用展示，欢迎互相讨论、学习。'
 baseurl: ''
 url: ''
-media: '/media'
+media: 'http://media.0kai.net'
 static: '/static'
 twitter_username: 
 github_username: 0kai
