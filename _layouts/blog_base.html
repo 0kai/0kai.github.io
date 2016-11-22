@@ -16,7 +16,7 @@ layout: base
             最近文章
             </div>
             <div class="list-group">
-            {% for rpost in site.posts limit:20 %}
+            {% for rpost in site.posts limit:10 %}
                 {% if rpost.categories[0] == "blog" %}
                 <a href="{{ site.url }}{{ rpost.url }}" class="list-group-item" title="{{ rpost.title }}" rel="bookmark">
                     {{ rpost.title }}
