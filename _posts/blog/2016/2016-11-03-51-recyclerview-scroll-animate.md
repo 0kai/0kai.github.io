@@ -3,7 +3,7 @@ title: 随着RecyclerView滚动的动画
 layout: blog
 categories: blog
 tags: android RecyclerView
-blogId: 1
+blogId: 51
 ---
 {% capture media_path %}{{site.media}}/blog/{{page.blogId}}{% endcapture %}
 
@@ -11,8 +11,8 @@ blogId: 1
 > 注：本文只说明大概的实现过程，并不放置完整的代码
 
 #### 效果
-![]({{media_path}}/image-2016110302.gif)
-![]({{media_path}}/image-2016110301.png)
+![]({{media_path}}/2.gif)
+![]({{media_path}}/1.png)
 
 #### 需求
 1. B可以横向滚动，C并不在B中（因为高度不一致）
@@ -27,6 +27,7 @@ blogId: 1
 
 ##### 2、C随着B滑动，且B高度变化
 - 这里是对RecyclerView的Scroll做监听
+
 ```java
 mProductsRcv.addOnScrollListener(new RecyclerView.OnScrollListener() {
     @Override
@@ -44,6 +45,7 @@ mProductsRcv.addOnScrollListener(new RecyclerView.OnScrollListener() {
     }
 });
 ```
+
 - 记录dx可以控制C的滑动，使用`setTranslationX`
 - B的高度变化，目前是`adapter.notifyDataSetChanged`
 - 手指放开回弹效果：在滑动停止时判断滑动的距离，看是否需要回弹，用`smoothScrollToPosition`
@@ -51,6 +53,7 @@ mProductsRcv.addOnScrollListener(new RecyclerView.OnScrollListener() {
 ##### 3、C既能点击又能滑动B区
 - C不设置Click事件就能滑动B区
 - 点击事件就用本item(含ABC的view)做`onInterceptTouchEvent`拦截
+
 ```java
 @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
