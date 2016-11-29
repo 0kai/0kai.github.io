@@ -20,7 +20,7 @@ layout: base
 			<img alt="" src="{{site.static}}/images/push_banner_3.jpg" />
 		</div>
 		<div class="item">
-			<a href="/app/2014/08/01/pet-op">
+			<a href="/app/2014/08/01/4-pet-op">
 			<img alt="" src="{{site.static}}/images/push_banner_2.jpg" />
 			</a>
 		</div>
@@ -42,7 +42,7 @@ layout: base
 		<div class="alert alert-warning" role="alert">亲~博主太懒了 ⊙﹏⊙‖∣</div>
 		{% endif %}
 
-		{% for rpost in site.posts limit:10  %}
+		{% for rpost in site.posts %}
 		{% if rpost.categories[0] == "app" %}
 		<div>
 			<a href="{{ site.url }}{{ rpost.url }}" class="text-default">{{ rpost.title }} | {{ rpost.subtitle | truncate:20 }} &nbsp; {{ rpost.date | date: "%m/%d" }}</a></a>
