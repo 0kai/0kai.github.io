@@ -16,6 +16,7 @@ blogId: 52
 
 #### 实现(写在工具类RxUtils.java)
 ##### 加载框的绑定 Transformer
+
 ```java
 public static  <T> Observable.Transformer<T, T> loadingDialog() {
     final AppLoadingDialog dialog = new AppLoadingDialog();
@@ -44,6 +45,7 @@ public static  <T> Observable.Transformer<T, T> loadingDialog() {
 ```
 
 ##### 按钮Enable的绑定 Transformer
+
 ```java
 public static <T> Observable.Transformer<T, T> disableButtons(final View... views) {
     return new Observable.Transformer<T, T>() {
@@ -77,6 +79,7 @@ public static <T> Observable.Transformer<T, T> disableButtons(final View... view
 ```
 
 ##### 调用 compose
+
 ```java
 observable.
 .compose(RxUtils.<ApiPojo<Object>>disableButtons(disableView))
