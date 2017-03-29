@@ -29,7 +29,7 @@ ad3a870
 #### 2. 从commit记录中判断是否是修改版本号的
 
 ``` bash
-git diff 35be678
+git show 35be678
 ```
 
 从输出结果中判断是否包含版本号那行的修改
@@ -95,7 +95,7 @@ def getVersionLog() {
     def preCommit
     for(def line : buildLogs) {
         line = line.replace("'", "")
-        def log = getExecValue(["git", "diff", line])
+        def log = getExecValue(["git", "show", line])
         if (isVersionChanged(log)) {
             if (lastCommit == null) {
                 lastCommit = line
