@@ -22,11 +22,13 @@ blogId: 56
 
 #### 2、dva+roadhog
 部署打包的时候会生成如下文件：
+
 ```
 index.html
 index.js
 index.css
 ```
+
 由于资源js和css名字不变，则浏览器在缓存情况下不会去更新
 
 ##### 2.1、升级roadhog
@@ -35,6 +37,7 @@ index.css
 
 ##### 2.2、hash配置
 .roadhogrc中添加
+
 ```
 {
   ...
@@ -45,6 +48,7 @@ index.css
 
 ##### 2.3、打包的时候index.html中并未引用带有hash的js/css
 >public/index.html -> src/index.ejs
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
